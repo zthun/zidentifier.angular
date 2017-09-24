@@ -1,0 +1,69 @@
+{
+    "name": "@zthun/zidentifier.angular",
+    "version": "0.0.0",
+    "description": "The zidentifier feature for Angular2+",
+    "keywords": [
+        "zid",
+        "zthunworks"
+    ],
+    "author": "Anthony Bonta",
+    "license": "MIT",
+    "main": "src/index.js",
+    "types": "src/index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/zthun/zid.angular"
+    },
+    "scripts": {
+        "clean:src": "rimraf src/*.d.ts src/**/*.d.ts src/*.js src/**/*.js src/*.map src/**/*.map",
+        "clean:bin": "rimraf bin *.tgz",
+        "clean": "npm run clean:bin && npm run clean:src",
+        "test": "karma start cfg/karma.conf.js",
+        "lint:ts": "tslint -c node_modules/zwebstyles/tslint.json src/**/*.ts src/*.ts test/*.ts",
+        "lint:js": "eslint cfg/*.js --config=node_modules/zwebstyles/.eslintrc",
+        "lint": "npm run lint:ts && npm run lint:js",
+        "compile:webpack": "webpack --config cfg/webpack.config",
+        "compile:ts": "tsc",
+        "compile": "npm run compile:ts && npm run compile:webpack",
+        "make": "npm run clean && npm run lint && npm run test && npm run compile && npm run compress",
+        "push": "git push origin && git push origin --tags && npm publish --access=public",
+        "release:major": "npm version major && npm run push",
+        "release:minor": "npm verion minor && npm run push",
+        "release:patch": "npm version patch && npm run push"
+    },
+    "peerDependencies": {
+        "@angular/common": "^4.4.3",
+        "@angular/compiler": "^4.4.3",
+        "@angular/core": "^4.4.3",
+        "core-js": "^2.5.1",
+        "rxjs": "^5.4.3",
+        "zone.js": "^0.8.17"
+    },
+    "devDependencies": {
+        "@angular/common": "=4.4.3",
+        "@angular/compiler": "=4.4.3",
+        "@angular/core": "=4.4.3",
+        "@angular/platform-browser": "=4.4.3",
+        "@angular/platform-browser-dynamic": "=4.4.3",
+        "@types/jasmine": "=2.6.0",
+        "@types/node": "=8.0.30",
+        "awesome-typescript-loader": "=3.2.3",
+        "core-js": "=2.5.1",
+        "eslint": "=4.7.2",
+        "jasmine-core": "=2.8.0",
+        "karma": "=1.7.1",
+        "karma-jasmine": "=1.1.0",
+        "karma-jasmine-html-reporter": "=0.2.2",
+        "karma-junit-reporter": "=1.2.0",
+        "karma-phantomjs-launcher": "=1.0.4",
+        "karma-typescript": "=3.0.6",
+        "phantomjs-prebuilt": "=2.1.15",
+        "rimraf": "=2.6.2",
+        "rxjs": "=5.4.3",
+        "tslint": "=5.7.0",
+        "typescript": "=2.5.2",
+        "webpack": "=3.6.0",
+        "zone.js": "=0.8.17",
+        "zwebstyles": "=3.0.0"
+    }
+}
