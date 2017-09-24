@@ -38,7 +38,7 @@ describe('ZIdentifierDirective', () => {
             // Assert
             expect(childElementWithZId.nativeElement.getAttribute('id')).toEqual('bar');
         });
-    })
+    });
 
     describe('with a root element that has an id.', () => {
         it('generates the id on the native element.', () => {

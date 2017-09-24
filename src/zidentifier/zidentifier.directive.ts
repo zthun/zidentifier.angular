@@ -32,16 +32,16 @@ export class ZIdentifierDirective {
     public generate(el: HTMLElement) {
         let rootElementWithId: HTMLElement = null;
 
-        if(!!el.getAttribute('id')) {
+        if (!!el.getAttribute('id')) {
             // Already has an id.
             return false;
         }
 
-        for(let tracer: HTMLElement = el.parentElement; !!tracer && rootElementWithId === null; tracer = tracer.parentElement) {
+        for (let tracer = el.parentElement; !!tracer && rootElementWithId === null; tracer = tracer.parentElement) {
             rootElementWithId = !!tracer.getAttribute('id') ? tracer : null;
         }
 
-        if(!rootElementWithId) {
+        if (!rootElementWithId) {
             // Nobody has an id.
             return false;
         }
