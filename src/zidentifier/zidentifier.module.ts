@@ -1,5 +1,3 @@
-import 'core-js';
-
 import { NgModule } from '@angular/core';
 
 import { ZIdentifierDirective } from './zidentifier.directive';

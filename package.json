@@ -1,7 +1,7 @@
 {
     "name": "@zthun/zidentifier.angular",
     "version": "0.0.0",
-    "description": "The zidentifier feature for Angular2+",
+    "description": "The zidentifier feature for Angular4+",
     "keywords": [
         "zid",
         "zthunworks"
@@ -25,6 +25,7 @@
         "compile:webpack": "webpack --config cfg/webpack.config",
         "compile:ts": "tsc",
         "compile": "npm run compile:ts && npm run compile:webpack",
+        "compress": "uglifyjs bin/dist/zidentifier.js -o bin/dist/zidentifier.min.js",
         "make": "npm run clean && npm run lint && npm run test && npm run compile && npm run compress",
         "push": "git push origin && git push origin --tags && npm publish --access=public",
         "release:major": "npm version major && npm run push",
@@ -32,12 +33,8 @@
         "release:patch": "npm version patch && npm run push"
     },
     "peerDependencies": {
-        "@angular/common": "^4.4.3",
-        "@angular/compiler": "^4.4.3",
         "@angular/core": "^4.4.3",
-        "core-js": "^2.5.1",
-        "rxjs": "^5.4.3",
-        "zone.js": "^0.8.17"
+        "core-js": "^2.5.1"
     },
     "devDependencies": {
         "@angular/common": "=4.4.3",

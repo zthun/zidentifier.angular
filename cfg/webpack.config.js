@@ -10,7 +10,9 @@ module.exports = (function() {
 
     var output = {
         filename: '[name].js',
-        path: path.resolve(__dirname, '..', paths.dist)
+        path: path.resolve(__dirname, '..', paths.dist),
+        libraryTarget: 'umd',
+        library: 'zidentifier'
     };
 
     var module = {
@@ -20,6 +22,17 @@ module.exports = (function() {
         }]
     };
 
+    var externals = {
+        '@angular/core': {
+            commonjs: '@angular/core',
+            commonjs2: '@angular/core',
+            amd: '@angular/core',
+            root: ['ng', 'core']
+        },
+
+        'core-js': 'core'
+    };
+
     var resolve = {
         extensions: ['.ts', '.js']
     };
@@ -27,6 +40,7 @@ module.exports = (function() {
     return {
         entry: entry,
         output: output,
+        externals: externals,
         module: module,
         resolve: resolve,
         devtool: 'cheap-module-source-map'
