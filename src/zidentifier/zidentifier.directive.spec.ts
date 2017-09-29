@@ -33,8 +33,9 @@ describe('ZIdentifierDirective', () => {
         it('uses the id.', () => {
             // Arrange
             childElementWithZId.nativeElement.setAttribute('id', 'bar');
+            let target = createTestTarget(childElementWithZId);
             // Act
-            createTestTarget(childElementWithZId);
+            target.ngOnInit();
             // Assert
             expect(childElementWithZId.nativeElement.getAttribute('id')).toEqual('bar');
         });
@@ -43,9 +44,11 @@ describe('ZIdentifierDirective', () => {
     describe('with a root element that has an id.', () => {
         it('generates the id on the native element.', () => {
             // Arrange
-            createTestTarget(childElementWithZId);
+            let parentTarget = createTestTarget(childElementWithZId);
+            parentTarget.ngOnInit();
+            let target = createTestTarget(grandChildElementWithZId);
             // Act
-            createTestTarget(grandChildElementWithZId);
+            target.ngOnInit();
             // Assert
             expect(childElementWithZId.nativeElement.getAttribute('id')).toEqual('foo-child');
             expect(grandChildElementWithZId.nativeElement.getAttribute('id')).toEqual('foo-child-grand-child');
@@ -56,9 +59,11 @@ describe('ZIdentifierDirective', () => {
         it('does not generate the id on the native element.', () => {
             // Arrange
             rootElementWithId.nativeElement.removeAttribute('id');
-            createTestTarget(childElementWithZId);
+            let parentTarget = createTestTarget(childElementWithZId);
+            parentTarget.ngOnInit();
+            let target = createTestTarget(childElementWithZId);
             // Act
-            createTestTarget(grandChildElementWithZId);
+            target.ngOnInit();
             // Assert
             expect(childElementWithZId.nativeElement.getAttribute('id')).toBeFalsy();
             expect(grandChildElementWithZId.nativeElement.getAttribute('id')).toBeFalsy();

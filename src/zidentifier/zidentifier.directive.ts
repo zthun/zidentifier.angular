@@ -1,6 +1,8 @@
 import { Directive } from '@angular/core';
 import { ElementRef } from '@angular/core';
 
+import { OnInit } from '@angular/core';
+
 /**
  * The attribute that will be retrieved.
  */
@@ -12,14 +14,19 @@ export const ZIdentifierAttribute = 'zid';
 @Directive ({
     selector: '[zId]'
 })
-export class ZIdentifierDirective {
+export class ZIdentifierDirective implements OnInit {
     /**
      * Initializes a new instance of this object.
      *
      * @param {ElementRef} el The element attached to this directive.
      */
-    constructor(el: ElementRef) {
-        this.generate(el.nativeElement as HTMLElement);
+    constructor(private el: ElementRef) { }
+
+    /**
+     * Initializes the element after the component has been created and added to the DOM.
+     */
+    public ngOnInit(): void {
+        this.generate(this.el.nativeElement as HTMLElement);
     }
 
     /**
@@ -29,7 +36,7 @@ export class ZIdentifierDirective {
      *
      * @return {Boolean | HTMLElement} The element is returned if an id was generated, or false if it could not be generated.
      */
-    public generate(el: HTMLElement) {
+    public generate(el: HTMLElement): boolean | HTMLElement {
         let rootElementWithId: HTMLElement = null;
 
         if (!!el.getAttribute('id')) {
