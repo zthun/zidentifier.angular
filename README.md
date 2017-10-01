@@ -1,51 +1,70 @@
 # Description
 
-ZIdentifier is a DOM helper for dynamically generating ids based on a root
-component.  
+This package is the dynamic id generator for Angular.  
 
-The purpose of this is to give QA quick access to DOM elements in automated testing.  Component reuse makes adding ids to the DOM somewhat dangerous because of the possibility of duplicate ids.
+See [@zthun/zidentifier.core](https://www.npmjs.com/package/@zthun/zidentifier.core) for the general problem and solution that this package attempts to solve.  
 
-## Example
+# How to Use
 
-Suppose you have a component named my-sample that expanded to the following template html.
+Install the package from npm into your project.  
 
+```sh
+npm install @zthun/zidentifier.angular --save
 ```
-<div>
-    <input type="text">
-    <input type="date">
-    <button>OK</button>
+
+In your Angular main module, add the ZIdentifierModule to your list of dependencies.
+
+```typescript
+import { NgModule } from '@angular/core';
+import { ZIdentifierModule } from '@zthun/zidentifier.angular';
+
+@NgModule({
+    bootstrap: [
+        // Bootstrap code.
+    ],
+    declarations: [
+        // Components and Directives go here.
+    ],
+    imports: [
+        ZIdentifierModule
+    ],
+    providers: [
+        // Injectables
+    ]
+})
+export class MyModule { }
+```
+
+This gives you access to the zId attribute directive.  You can now dynamically generate ids based on your root component.
+
+```html
+<div id="root">
+    <div zId="component">
+        <div zId="child-one"></div>
+        <div zId="child-two"></div>
+    </div>
 </div>
 ```
 
-Now assume that you had the following DOM elements.
+The zId attribute can be bound to context data as well.
 
-```
-<!DOCTYPE html>
-<html>
-    <head>
-    <title>My Sample</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <link href="css/my-sample.css" rel="stylesheet" />
-    </head>
-    <body>
-        <label>Sample A</label>
-        <my-sample></my-sample>
-        <label>Sample B</label>
-        <my-sample></my-sample>
-        <script src="scripts/my-sample.min.js"></script>
-    </body>
-</html>
+```html
+<div id="root">
+    <div zId="component">
+        <div *ngFor="let item of items" zId="child-{{item.id}}">
+        </div>
+    </div>
+</div>
 ```
 
-In the above scenario, it will be very difficult to distinguish between the two samples and which one they are for.  You can write some complex CSS selectors that will automatically select it by index in frameworks like Selenium, but it would be a lot easier if you could just grab the elements by ID.  However, setting IDs on the component template would produce duplicate ids in this case.
+This will output the following HTML.
 
-```
-<div>
-    <input id="sample-text-input" type="text">
-    <input id="sample-date-input" type="date">
-    <button id="sample-button">OK</button>
+```html
+<div id="root">
+    <div id="root-component">
+        <div id="root-component-child-one"></div>
+        <div id="root-component-child-two"></div>
+    </div>
 </div>
 ```
 
@@ -53,12 +72,16 @@ In the above scenario, it will be very difficult to distinguish between the two 
 
 You will need the source repository first.
 
-```
+```sh
 git clone https://github.com/zthun/zidentifier.angular
 ```
 
 You can also fork the repository in preparation for a pull request back to the master branch.
 
-# Build and Test
+Once you have the repository, you can build the solution using the following commands.
 
-TODO
+```sh
+npm install
+npm run make
+npm pack
+```

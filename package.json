@@ -27,10 +27,7 @@
         "compile": "npm run compile:ts && npm run compile:webpack",
         "compress": "uglifyjs bin/dist/zidentifier.js -o bin/dist/zidentifier.min.js",
         "make": "npm run clean && npm run lint && npm run test && npm run compile && npm run compress",
-        "push": "git push origin && git push origin --tags && npm publish --access=public",
-        "release:major": "npm version major && npm run push",
-        "release:minor": "npm verion minor && npm run push",
-        "release:patch": "npm version patch && npm run push"
+        "push": "git push origin && git push origin --tags && npm publish --access=public"
     },
     "peerDependencies": {
         "@angular/core": "^4.4.3",
@@ -62,5 +59,8 @@
         "webpack": "=3.6.0",
         "zone.js": "=0.8.17",
         "zwebstyles": "=3.0.0"
+    },
+    "dependencies": {
+        "@zthun/zidentifier.core": "=1.0.0"
     }
 }

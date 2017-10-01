@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 
+import { ZIdGeneratorService } from '@zthun/zidentifier.core';
+
 import { ZIdentifierDirective } from './zidentifier.directive';
 
 /**
@@ -11,6 +13,9 @@ import { ZIdentifierDirective } from './zidentifier.directive';
     ],
     exports: [
         ZIdentifierDirective
+    ],
+    providers: [
+        ZIdGeneratorService
     ]
 })
 export class ZIdentifierModule { }
