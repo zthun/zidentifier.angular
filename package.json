@@ -30,8 +30,8 @@
         "push": "git push origin && git push origin --tags && npm publish --access=public"
     },
     "peerDependencies": {
-        "@angular/core": "^4.4.3 < 6.0.0",
-        "core-js": "^2.5.0"
+        "@angular/core": ">=4.4.3",
+        "core-js": ">=2.5.0"
     },
     "devDependencies": {
         "@angular/common": "=5.1.3",
