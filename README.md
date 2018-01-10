@@ -68,6 +68,17 @@ This will output the following HTML.
 </div>
 ```
 
+You can also use this for labels.
+
+```html
+<div id="root">
+    <form id="root-form">
+        <label zForId="input">My Label</label>
+        <input zId="input" type="text">
+    </form>
+</div>    
+```
+
 # Contribute
 
 You will need the source repository first.
