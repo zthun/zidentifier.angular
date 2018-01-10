@@ -2,17 +2,20 @@ import { NgModule } from '@angular/core';
 
 import { ZIdGeneratorService } from '@zthun/zidentifier.core';
 
-import { ZIdentifierDirective } from './zidentifier.directive';
+import { ZForIdentifierDirective } from './zidentifier.zforid.directive';
+import { ZIdentifierDirective } from './zidentifier.zid.directive';
 
 /**
  * Represents the module entry point for the zidentifier feature.
  */
 @NgModule({
     declarations: [
-        ZIdentifierDirective
+        ZIdentifierDirective,
+        ZForIdentifierDirective
     ],
     exports: [
-        ZIdentifierDirective
+        ZIdentifierDirective,
+        ZForIdentifierDirective
     ],
     providers: [
         ZIdGeneratorService

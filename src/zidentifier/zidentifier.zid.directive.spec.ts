@@ -1,36 +1,29 @@
 import { ElementRef } from '@angular/core';
-import { ZIdGeneratorService } from '@zthun/zidentifier.core';
 
-import { ZIdentifierDirective } from './zidentifier.directive';
+import { ZIdGeneratorService } from '@zthun/zidentifier.core';
+import { ZIdentifierDirective } from './zidentifier.zid.directive';
 
 describe('ZIdentifierDirective', () => {
-    const ZId = 'foo';
-
     let elementReference: ElementRef;
     let zIdGeneratorSvc: ZIdGeneratorService;
-    let zIdGeneratorSvcSpy: any;
 
     beforeEach(() => {
         let nativeElement: HTMLElement = document.createElement('div');
         elementReference = new ElementRef(nativeElement);
 
         zIdGeneratorSvc = jasmine.createSpyObj<ZIdGeneratorService>('ZIdGeneratorService', ['generateIdForElement']);
-        zIdGeneratorSvcSpy = zIdGeneratorSvc;
 
+        let zIdGeneratorSvcSpy: any = zIdGeneratorSvc;
         zIdGeneratorSvcSpy.generateIdForElement.and.callFake((zid: string, el: HTMLElement): boolean | HTMLElement => el);
     });
 
-    function createTestTarget() {
-        return new ZIdentifierDirective(elementReference, zIdGeneratorSvc);
-    }
-
-    it('updates the id given the zid value.', () => {
+    it('updates the attribute given the input value.', () => {
         // Arrange
-        let target = createTestTarget();
-        target.zId = ZId;
+        let target = new ZIdentifierDirective(elementReference, zIdGeneratorSvc);
+        target.zId = 'foo';
         // Act
         target.ngOnInit();
         // Assert
-        expect(zIdGeneratorSvc.generateIdForElement).toHaveBeenCalledWith(ZId, elementReference.nativeElement);
+        expect(zIdGeneratorSvc.generateIdForElement).toHaveBeenCalledWith(target.zId, elementReference.nativeElement);
     });
 });

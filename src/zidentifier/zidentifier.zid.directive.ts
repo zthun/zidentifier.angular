@@ -6,7 +6,7 @@ import { OnInit } from '@angular/core';
 import { ZIdGeneratorService } from '@zthun/zidentifier.core';
 
 /**
- * Represents the zidentifier directive to attach to elements.
+ * Represents the zidentifier directive to attach the zId.
  */
 @Directive ({
     selector: '[zId]'

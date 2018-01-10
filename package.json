@@ -61,6 +61,6 @@
         "zwebstyles": "=3.0.0"
     },
     "dependencies": {
-        "@zthun/zidentifier.core": "=1.0.0"
+        "@zthun/zidentifier.core": "=1.1.1"
     }
 }
