@@ -9,14 +9,14 @@ See [@zthun/zidentifier.core](https://www.npmjs.com/package/@zthun/zidentifier.c
 Install the package from npm into your project.  
 
 ```sh
-npm install @zthun/zidentifier.angular --save
+npm install @zthun/identifier.angular --save
 ```
 
 In your Angular main module, add the ZIdentifierModule to your list of dependencies.
 
 ```typescript
 import { NgModule } from '@angular/core';
-import { ZIdentifierModule } from '@zthun/zidentifier.angular';
+import { ZIdentifierModule } from '@zthun/identifier.angular';
 
 @NgModule({
     bootstrap: [
