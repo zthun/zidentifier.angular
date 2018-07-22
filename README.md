@@ -35,23 +35,23 @@ import { ZIdentifierModule } from '@zthun/zidentifier.angular';
 export class MyModule { }
 ```
 
-This gives you access to the zId attribute directive.  You can now dynamically generate ids based on your root component.
+This gives you access to the zid attribute directive.  You can now dynamically generate ids based on your root component.
 
 ```html
 <div id="root">
-    <div zId="component">
-        <div zId="child-one"></div>
-        <div zId="child-two"></div>
+    <div zid="component">
+        <div zid="child-one"></div>
+        <div zid="child-two"></div>
     </div>
 </div>
 ```
 
-The zId attribute can be bound to context data as well.
+The zid attribute can be bound to context data as well.
 
 ```html
 <div id="root">
-    <div zId="component">
-        <div *ngFor="let item of items" zId="child-{{item.id}}">
+    <div zid="component">
+        <div *ngFor="let item of items" zid="child-{{item.id}}">
         </div>
     </div>
 </div>
@@ -73,10 +73,10 @@ You can also use this for labels.
 ```html
 <div id="root">
     <form id="root-form">
-        <label zForId="input">My Label</label>
-        <input zId="input" type="text">
+        <label zfor="input">My Label</label>
+        <input zid="input" type="text">
     </form>
-</div>    
+</div>
 ```
 
 # Contribute

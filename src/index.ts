@@ -1,5 +1,4 @@
-import 'core-js';
-
-export * from './zidentifier/zidentifier.zforid.directive';
-export * from './zidentifier/zidentifier.zid.directive';
-export * from './zidentifier/zidentifier.module';
+export * from './z-for/z-for.directive';
+export * from './z-id/z-id.directive';
+export * from './z-identifier/z-abstract-attr-directive.class';
+export * from './z-identifier/z-identifier.module';
