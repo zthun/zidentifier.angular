@@ -1,60 +1,63 @@
 {
-    "name": "@zthun/identifier.angular",
-    "version": "2.0.0",
-    "description": "The zidentifier feature for Angular6+",
-    "keywords": [
-        "zid",
-        "zthunworks"
-    ],
-    "author": "Anthony Bonta",
-    "license": "MIT",
-    "main": "dist/commonjs/index.js",
-    "types": "dist/types/index.d.ts",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/zthun/zidentifier.angular"
-    },
-    "scripts": {
-        "clean": "rimraf dist *.tgz",
-        "test": "karma start cfg/karma.conf.js",
-        "lint:ts": "tslint src/**/*.ts src/*.ts -c node_modules/@zthun/web-styles/lint/tslint.json",
-        "lint:js": "eslint cfg/*.js --config=node_modules/@zthun/web-styles/lint/.eslintrc",
-        "lint": "npm run lint:ts && npm run lint:js",
-        "transpile": "tsc",
-        "bundle": "webpack --config cfg/webpack.config",
-        "compress": "uglifyjs dist/umd/zidentifier.js -o dist/umd/zidentifier.min.js",
-        "make": "npm run clean && npm run lint && npm run test && npm run transpile && npm run bundle && npm run compress && npm pack"
-    },
-    "peerDependencies": {
-        "@angular/core": ">=6.0.0"
-    },
-    "devDependencies": {
-        "@angular/common": "=6.0.9",
-        "@angular/compiler": "=6.0.9",
-        "@angular/core": "=6.0.9",
-        "@angular/platform-browser": "=6.0.9",
-        "@angular/platform-browser-dynamic": "=6.0.9",
-        "@types/jasmine": "=2.8.8",
-        "@types/node": "=10.5.2",
-        "@zthun/web-styles": "=5.0.0",
-        "ajv": "=6.5.2",
-        "awesome-typescript-loader": "=5.2.0",
-        "core-js": "=2.5.7",
-        "jasmine-core": "=3.1.0",
-        "karma": "=2.0.4",
-        "karma-chrome-launcher": "^2.2.0",
-        "karma-jasmine": "=1.1.2",
-        "karma-jasmine-html-reporter": "=1.2.0",
-        "karma-junit-reporter": "=1.2.0",
-        "karma-typescript": "=3.0.13",
-        "rimraf": "=2.6.2",
-        "rxjs": "=6.2.2",
-        "typescript": "=2.9.2",
-        "webpack": "=4.16.1",
-        "webpack-cli": "=3.1.0",
-        "zone.js": "=0.8.26"
-    },
-    "dependencies": {
-        "@zthun/identifier.core": "file:../zidentifier.core/zthun-identifier.core-2.0.0.tgz"
-    }
+  "name": "@zthun/identifier.angular",
+  "version": "2.0.0",
+  "description": "The zidentifier feature for Angular6+",
+  "keywords": [
+    "zid",
+    "zthunworks"
+  ],
+  "author": "Anthony Bonta",
+  "license": "MIT",
+  "main": "dist/commonjs/index.js",
+  "types": "dist/types/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zthun/zidentifier.angular"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "rimraf dist *.tgz",
+    "test": "karma start cfg/karma.conf.js",
+    "lint:ts": "tslint src/**/*.ts src/*.ts -c node_modules/@zthun/web-styles/lint/tslint.json",
+    "lint:js": "eslint cfg/*.js --config=node_modules/@zthun/web-styles/lint/.eslintrc",
+    "lint": "npm run lint:ts && npm run lint:js",
+    "transpile": "tsc",
+    "bundle": "webpack --config cfg/webpack.config",
+    "compress": "uglifyjs dist/umd/zidentifier.js -o dist/umd/zidentifier.min.js",
+    "make": "npm run clean && npm run lint && npm run test && npm run transpile && npm run bundle && npm run compress && npm pack"
+  },
+  "peerDependencies": {
+    "@angular/core": ">=6.0.0"
+  },
+  "devDependencies": {
+    "@angular/common": "=6.0.9",
+    "@angular/compiler": "=6.0.9",
+    "@angular/core": "=6.0.9",
+    "@angular/platform-browser": "=6.0.9",
+    "@angular/platform-browser-dynamic": "=6.0.9",
+    "@types/jasmine": "=2.8.8",
+    "@types/node": "=10.5.2",
+    "@zthun/web-styles": "=5.0.0",
+    "ajv": "=6.5.2",
+    "awesome-typescript-loader": "=5.2.0",
+    "core-js": "=2.5.7",
+    "jasmine-core": "=3.1.0",
+    "karma": "=2.0.4",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "=1.1.2",
+    "karma-jasmine-html-reporter": "=1.2.0",
+    "karma-junit-reporter": "=1.2.0",
+    "karma-typescript": "=3.0.13",
+    "rimraf": "=2.6.2",
+    "rxjs": "=6.2.2",
+    "typescript": "=2.9.2",
+    "webpack": "=4.16.1",
+    "webpack-cli": "=3.1.0",
+    "zone.js": "=0.8.26"
+  },
+  "dependencies": {
+    "@zthun/identifier.core": "file:../zidentifier.core/zthun-identifier.core-2.0.0.tgz"
+  }
 }
