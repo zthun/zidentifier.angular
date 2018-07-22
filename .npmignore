@@ -1,3 +1,2 @@
 *
-!dist/commonjs/**
-!dist/types/**
+!dist/zidentifier/**

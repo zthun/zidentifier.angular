@@ -1,6 +1,6 @@
 import { Directive, ElementRef, Input } from '@angular/core';
 import { ZIdentifierGenerator } from '@zthun/identifier.core';
-import { ZAbstractAttrDirective } from '../z-identifier/z-abstract-attr-directive.class';
+import { ZAbstractAttrDirective } from '../z-attr/z-abstract-attr-directive.class';
 
 /**
  * Represents the directive to attach a for attribute.

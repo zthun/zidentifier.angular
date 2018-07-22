@@ -1,8 +1,8 @@
 import { ElementRef } from '@angular/core';
 import { ZIdentifierGenerator } from '@zthun/identifier.core';
-import { ZIdDirective } from './z-id.directive';
+import { ZForDirective } from './z-for.directive';
 
-describe('ZIdDirective', () => {
+describe('ZForIdDirective', () => {
     let el: ElementRef;
     let generator: ZIdentifierGenerator;
 
@@ -12,16 +12,16 @@ describe('ZIdDirective', () => {
     });
 
     function createTestTarget() {
-        return new ZIdDirective(el, generator);
+        return new ZForDirective(el, generator);
     }
 
     it('updates the attribute given the input value.', () => {
         // Arrange
-        let target = createTestTarget();
-        target.zid = 'foo';
+        const target = createTestTarget();
+        target.zfor = 'foo';
         // Act
         target.ngOnInit();
         // Assert
-        expect(generator.generateAttributeForElement).toHaveBeenCalledWith('id', target.zid, el.nativeElement);
+        expect(generator.generateAttributeForElement).toHaveBeenCalledWith('for', target.zfor, el.nativeElement);
     });
 });
