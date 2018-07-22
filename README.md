@@ -2,7 +2,7 @@
 
 This package is the dynamic id generator for Angular.  
 
-See [@zthun/zidentifier.core](https://www.npmjs.com/package/@zthun/zidentifier.core) for the general problem and solution that this package attempts to solve.  
+See [@zthun/identifier.core](https://www.npmjs.com/package/@zthun/identifier.core) for the general problem and solution that this package attempts to solve.  
 
 # How to Use
 
