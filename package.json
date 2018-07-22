@@ -58,6 +58,6 @@
     "zone.js": "=0.8.26"
   },
   "dependencies": {
-    "@zthun/identifier.core": "file:../zidentifier.core/zthun-identifier.core-2.0.0.tgz"
+    "@zthun/identifier.core": "=2.0.0"
   }
 }
