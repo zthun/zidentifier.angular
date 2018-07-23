@@ -9,7 +9,7 @@
   ],
   "author": "Anthony Bonta",
   "license": "MIT",
-  "main": "dist/esm5/z-identifier.js",
+  "main": "dist/zidentifier/esm5/z-identifier.js",
   "types": "dist/zidentifier/z-identifier.d.ts",
   "repository": {
     "type": "git",
