@@ -7,8 +7,11 @@ import { IDomQuery } from './dom-query.interface';
 })
 export class AppComponent {
   public ids: IDomQuery[];
+  public labels: IDomQuery[];
+  public animal: string;
 
   public constructor() {
+    this.animal = 'cat';
     this.ids = [
       { name: 'zid-demo', exists: false },
       { name: 'zid-demo-app', exists: false },
@@ -18,17 +21,24 @@ export class AppComponent {
       { name: 'zid-demo-app-a-child-component', exists: false },
       { name: 'zid-demo-app-b-child-component', exists: false }
     ];
+
+    this.labels = [
+      { name: 'zid-demo-app-dog-radio', exists: false },
+      { name: 'zid-demo-app-cat-radio', exists: false },
+      { name: 'zid-demo-app-bird-radio', exists: false },
+      { name: 'zid-demo-app-fish-radio', exists: false }
+    ];
   }
 
   public resetTest() {
-    for (let id of this.ids) {
-      id.exists = false;
-    }
+    this.ids.forEach((id) => id.exists = false);
+    this.labels.forEach((label) => label.exists = false);
   }
 
   public runTest() {
-    for (let id of this.ids) {
-      id.exists = !!document.getElementById(id.name);
-    }
+    this.ids.forEach((id) => id.exists = !!document.getElementById(id.name));
+
+    const queryLabels: HTMLLabelElement[] = Array.prototype.slice.call(document.getElementsByTagName('label'));
+    this.labels.forEach((lbl) => lbl.exists = queryLabels.filter((ql) => ql.getAttribute('for') === lbl.name).length > 0);
   }
 }
