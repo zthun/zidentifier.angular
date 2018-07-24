@@ -1,5 +1,5 @@
 /*
- * Public API Surface of z-identifier
+ * Public API Surface of zidentifier
  */
 
 export * from './lib/z-attr/z-abstract-attr-directive.class';

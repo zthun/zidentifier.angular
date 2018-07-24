@@ -17,11 +17,11 @@
       "dom"
     ],
     "paths": {
-      "z-identifier": [
-        "dist/z-identifier"
+      "zidentifier": [
+        "dist/zidentifier"
       ],
-      "z-identifier/*": [
-        "dist/z-identifier/*"
+      "zidentifier/*": [
+        "dist/zidentifier/*"
       ]
     }
   }
