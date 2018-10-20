@@ -9,3 +9,6 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 - Updated dependencies to the latest versions
+
+### Removed
+- Bootstrap is no longer a forced dependency.
